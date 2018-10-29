@@ -1,0 +1,33 @@
+version: "3.5"
+
+services:
+  app:
+    image: qloud77/dss
+    container_name: app
+    ports:
+      - "3000:80"
+
+  backend:
+    image: qloud77/lumen
+    container_name: lumen
+    ports:
+      - "3300:80"
+    networks:
+      - ditalnet
+
+  db:
+    image: mysql
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "4000:3306"
+    networks:
+      - ditalnet
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+
+networks:
+  ditalnet:
+    external: true
