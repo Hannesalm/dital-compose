@@ -7,7 +7,7 @@ services:
     ports:
       - "3000:80"
 
-  backend:
+  lumen:
     image: qloud77/lumen
     container_name: lumen
     ports:
@@ -27,7 +27,13 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: root
+    volumes:
+      - data:/var/lib/mysql/test
 
 networks:
   ditalnet:
     external: true
+
+volumes:
+  data:
+    driver: "local"

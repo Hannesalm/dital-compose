@@ -15,3 +15,4 @@ docker pull qloud77/lumen
 echo "$(tput setaf 1)Start containers$(tput sgr0)"
 
 docker-compose up -d
+
