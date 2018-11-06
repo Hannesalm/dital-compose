@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   app:
-    image: qloud77/dss
+    image: qloud77/dital-app
     container_name: app
     ports:
       - "3000:80"
