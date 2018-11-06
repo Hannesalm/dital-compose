@@ -8,7 +8,7 @@ services:
       - "3000:80"
 
   api:
-    image: new-api
+    image: qloud77/api
     container_name: api
     command: npm run prod
     ports:
