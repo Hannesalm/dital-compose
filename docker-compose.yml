@@ -1,31 +1,30 @@
 version: "3.5"
 
 services:
-  app:
-    image: qloud77/dital-app
-    container_name: app
-    ports:
-      - "3000:80"
+  version: "3.5"
 
-  api:
-    image: qloud77/api
-    container_name: api
-    command: npm run prod
+services:
+  kalmar:
+    image: qloud77/dital
     ports:
-      - "8090:3000"
+      - "8090:80"
     networks:
-      - ditalnet
-
-  db:
-    image: mysql
-    container_name: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    networks:
-      - ditalnet
+      - dital
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
+      - database=db
+      - OFFICE=Kalmar
+
+  karlskrona:
+    image: qloud77/dital
+    ports:
+      - "8091:80"
+    networks:
+      - dital
+    environment:
+      - database=db
+      - OFFICE=Karlskrona
 
 networks:
-  ditalnet:
+  dital:
     external: true
+
