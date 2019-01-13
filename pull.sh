@@ -8,10 +8,6 @@ echo "$(tput setaf 1)Pulling app from docker hub$(tput sgr0)"
 
 sudo docker pull qloud77/dital
 
-echo "$(tput setaf 1)Start db containers$(tput sgr0)"
+echo "$(tput setaf 1)Start containers$(tput sgr0)"
 
-sudo docker-compose -f db.yml up -d
-
-echo "$(tput setaf 1)Start Laravel containers$(tput sgr0)"
-
-sudo docker-compose -f offices.yml up -d
+sudo docker-compose up 
