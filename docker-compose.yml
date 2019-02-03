@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   kalmar:
-    image: qloud77/dital
+    image: qloud77/dital-laravel
     ports:
       - "8090:80"
     networks:
@@ -12,7 +12,7 @@ services:
       - OFFICE=Kalmar
 
   karlskrona:
-    image: qloud77/dital
+    image: qloud77/dital-laravel
     ports:
       - "8091:80"
     networks:
@@ -25,11 +25,18 @@ services:
     image: mysql
     container_name: mysql
     command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - /database
+    ports:
+      - "33060:3306"
     networks:
       - dital
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
+      MYSQL_USER: dital
+      MYSQL_DATABASE: dital
+      MYSQL_PASSWORD: dital
 
 networks:
   dital:
