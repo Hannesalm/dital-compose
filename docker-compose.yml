@@ -4,8 +4,8 @@ services:
   app:
     image: qloud77/dital-laravel
     ports:
-      - "127.0.0.1:80:80"
-      - "127.0.0.1:443:443"
+      - "188.95.227.207:80:80"
+      - "188.95.227.207:443:443"
     networks:
       - dital
 
@@ -15,7 +15,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
-      - "127.0.0.1:33060:3306"
+      - "188.95.227.207:33060:3306"
     networks:
       - dital
     environment:
